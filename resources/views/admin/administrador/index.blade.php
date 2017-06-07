@@ -7,6 +7,8 @@
 
 @section('main-content')
       <div class="row">
+				@foreach ($entradas as $entrada)
+
 				<div class="col-lg-6 col-md-6 ">
 					<div class="box box-danger">
 											<div class="box-header">
@@ -16,7 +18,6 @@
 											<div class="box-body">
 												<form role="form" id="form" class="formulario" enctype="multipart/form-data" method="POST" action="{{ url('admin/guardarinfo') }}">
 													{{ csrf_field() }}
-                          @foreach ($entradas as $entrada)
                           <div class="form-group">
                               <label for="email">Título Del Sitio</label>
                               <input type="text" class="form-control" name="titulo" id="email" value="{{$entrada->parametro_titulo}}">
@@ -67,13 +68,66 @@
                             <input type="checkbox" id="pwd" name="estado" value="1">
                             </div>
                           @endif
-                          @endforeach
                               <button type="submit" class="btn btn-danger">Guardar Cambios</button>
                              </form>
 												 </div>
+
 												 </div>
 											 </div>
-                     </div>
+
+<div class="col-lg-6 col-md-6">
+	<div class="box box-danger">
+							<div class="box-header">
+								<h3 class="box-title"><strong>Ajustes Generales</strong></h3>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<div class="col-lg-12">
+<label >LOGO</label>
+<img class="pull-right" src="{{ruta().'/'.$entrada->parametro_logo}}" alt="">
+								</div>
+
+								<div class="col-lg-12">
+<label >LOGO RESPONSIVE</label>
+<img class="pull-right" src="{{ruta().'/'.$entrada->parametro_logox29}}" alt="">
+								</div>
+
+								<div class="col-lg-12">
+<label >ICONO</label>
+<img class="pull-right" src="{{ruta().'/'.$entrada->parametro_icono}}" alt="">
+								</div>
+
+<form role="form" id="form" class="formulario" enctype="multipart/form-data" method="POST" action="{{ url('admin/guardarimg') }}">
+	{{ csrf_field() }}
+	<div class="form-group"  id="imagen">
+		<label for="pwd">Logo (140x40)</label>
+		<input type="file" class="form-control" name="logo">
+		@if ($errors->has('logo') )
+		<p style="color:red;margin:0px">{{ $errors->first('logo') }}</p>
+		@endif
+	</div>
+	<div class="form-group"  id="imagen">
+		<label for="pwd">Logo Responsive(119x29)</label>
+		<input type="file" class="form-control" name="logo_responsive">
+		@if ($errors->has('logo_responsive') )
+		<p style="color:red;margin:0px">{{ $errors->first('logo_responsive') }}</p>
+		@endif
+	</div>
+	<div class="form-group"  id="imagen">
+		<label for="pwd">Icono(36 x 36)</label>
+		<input type="file" class="form-control" name="icono">
+		@if ($errors->has('icono') )
+		<p style="color:red;margin:0px">{{ $errors->first('icono') }}</p>
+		@endif
+		</div>
+<button type="submit" name="button">Cambiar Logos</button>
+
+</form>
+</div>
+</div>
+@endforeach
+</div>
+</div>
 
 
 

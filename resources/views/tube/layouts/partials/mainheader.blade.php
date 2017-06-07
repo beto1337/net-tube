@@ -7,14 +7,14 @@
                         <div class="large-12 columns">
                             <div class="title-bar" data-responsive-toggle="beNav" data-hide-for="large">
                                 <button class="menu-icon" type="button" data-toggle="offCanvas-responsive"></button>
-                                <div class="title-bar-title"><img src="{{ asset('images/logo-small.png')}}" alt="logo"></div>
+                                <div class="title-bar-title"><img src="{{logo_responsive()}}" alt="logo"></div>
                             </div>
 
                             <div class="top-bar show-for-large" id="beNav" style="width: 100%;">
                                 <div class="top-bar-left">
                                     <ul class="menu">
                                         <li class="menu-text">
-                                            <a href="{{url('home')}}"><img src="{{ asset('images/logo.png')}}" alt="logo"></a>
+                                            <a href="{{url('/')}}"><img src="{{logo()}}" alt="logo"></a>
                                         </li>
                                     </ul>
                                 </div>

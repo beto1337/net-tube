@@ -16,6 +16,8 @@
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
+    <link rel="icon" type="image/png" href="{{icono()}}" />
+
     <link href="{{ asset('/css/skins/skin-red.css') }}" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />

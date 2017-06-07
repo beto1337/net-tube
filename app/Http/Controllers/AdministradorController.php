@@ -33,4 +33,44 @@ class AdministradorController extends Controller
       return back();
 
     }
+    public function guardarimg(Request $request)
+    {
+      validaradministrador();
+      if ($request->hasfile('logo')) {
+        $this->validate($request, [
+        'logo' => 'required|dimensions:width=140,height=40',
+      ]);
+      $logo=$request->logo;
+      $imageFileName = "logo" . '.' . $logo->getClientOriginalExtension();
+      $public = \Storage::disk('public');
+      $public->put('/'.$imageFileName, file_get_contents($request->logo), 'public');
+      DB::table('cms_parametros')->where('parametro_id',1)->update(['parametro_logo'=>$imageFileName]);
+      }
+
+      if ($request->hasfile('logo_responsive')) {
+        $this->validate($request, [
+        'logo_responsive' => 'required|dimensions:width=119,height=29',
+      ]);
+      $logo=$request->logo_responsive;
+      $imageFileName = "logo-small" . '.' . $logo->getClientOriginalExtension();
+      $public = \Storage::disk('public');
+      $public->put('/'.$imageFileName, file_get_contents($request->logo_responsive), 'public');
+      DB::table('cms_parametros')->where('parametro_id',1)->update(['parametro_logox29'=>$imageFileName]);
+      }
+
+      if ($request->hasfile('icono')) {
+        $this->validate($request, [
+        'icono' => 'required|dimensions:width=36,height=36',
+      ]);
+      $logo=$request->icono;
+      $imageFileName = "icono" . '.' . $logo->getClientOriginalExtension();
+      $public = \Storage::disk('public');
+      $public->put('/'.$imageFileName, file_get_contents($request->icono), 'public');
+      DB::table('cms_parametros')->where('parametro_id',1)->update(['parametro_icono'=>$imageFileName]);
+
+      }
+
+      return back();
+
+    }
 }

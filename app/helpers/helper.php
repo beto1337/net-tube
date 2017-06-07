@@ -49,7 +49,7 @@ function slider($imagen)
 }
 function ruta()
 {
-  return "http://192.168.0.16/metromusica/storage/app/public";
+  return "http://192.168.0.18/net-tube/storage/app/public";
 }
 
 function carpetapost()
@@ -74,4 +74,22 @@ function fecha($fecha)
 function hora($fecha)
 {
   return substr($fecha, 10);
+}
+function descripcion(){
+  return "esto es la descripcion";
+}
+function keywords(){
+  return "esto, sdsd, sds, sas";
+}
+function logo()
+{
+  return ruta()."/logo.png";
+}
+function logo_responsive()
+{
+  return ruta()."/logo-small.png";
+}
+function icono()
+{
+  return ruta()."/icono.png";
 }

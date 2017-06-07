@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', 'AdminController@index2');
+Route::get('/', 'HomeController@index');
 
 Route::auth();
 
@@ -29,6 +29,7 @@ Route::post('admin/slider/editar', 'SliderController@editar');
 //administrador controller SAMConnection
 Route::get('/admin/general','AdministradorController@index');
 Route::post('/admin/guardarinfo','AdministradorController@guardarinfo');
+Route::post('/admin/guardarimg','AdministradorController@guardarimg');
 
 Route::get('/admin/entrada','PostController@index');
 Route::get('/admin/entrada/nuevo','PostController@newpost');
@@ -59,3 +60,8 @@ Route::get('admin/usuarios','UsuariosController@index');
 Route::get('/home/{slug}','DireccionesController@paginas');
 
 Route::get('/{categoria}/{slug}','DireccionesController@index');
+
+
+Route::get('/toplist','ListatopController@index');
+Route::get('/detallado','ListatopController@detallado');
+Route::get('/comprar','ListatopController@comprar');
